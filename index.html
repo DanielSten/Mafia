@@ -1,0 +1,161 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+	<head>
+		<!-- Заголовок страницы в браузере -->
+		<title>Раздача ролей</title>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+		<!-- Подключаем CSS -->
+		<link rel="stylesheet" href="css/style.css" />
+		<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+		<!-- Кодировка страницы -->
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="block_btn">
+				<button id="btnOne" class="block_btn-text btn_number active"><span>Номера</span></button>
+				<button id="btnTwo" class="block_btn-text btn_role"><span>Роли</span></button>
+			</div>
+			<div class="flex">
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>	
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="block_card">
+						<div class="block_card_front"></div>
+						<div class="block_card_back"></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+			
+		<script>
+			let role = ['мирный', 'мирный', 'мирный', 'мирный', 'мирный', 'мирный', 'мафия', 'мафия', 'босс', 'шериф'];
+			let numberPlayers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+			let numberCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+			const cards = document.querySelectorAll('.block_card');
+			const nums = document.querySelectorAll('.block_card_front');
+			let btnOne = document.querySelector('.btn_number');
+			let btnTwo = document.querySelector('.btn_role');
+			let count = 9;
+
+
+
+
+			nums.forEach((n, i) => n.textContent = numberCard[i]);
+
+
+			function useRole() {
+				role.sort(()=>Math.random()-0.5);
+			console.log(role);
+			document.querySelectorAll('.block_card_back').forEach((n, i) => n.textContent = role[i]);
+			}
+			function useNumPlayers() {
+				numberPlayers.sort(()=>Math.random()-0.5);
+			document.querySelectorAll('.block_card_back').forEach((n, i) => n.textContent = numberPlayers[i]);
+			}
+			useNumPlayers()
+
+
+
+			function changeBtn() {
+
+				btnOne.addEventListener('click', () => {
+					if (btnOne.classList.contains("active")) {
+					  btnOne.classList.remove("active");
+					  btnTwo.classList.add("active");
+					  useRole()
+					}
+				})
+				btnTwo.addEventListener('click', () => {
+					if (btnTwo.classList.contains("active")) {
+					  btnTwo.classList.remove("active");
+					  btnOne.classList.add("active");
+					  useNumPlayers()
+					}
+				})
+			}
+			changeBtn()
+
+
+
+
+
+
+			const flipCard = e => {
+
+				const target = e.target.parentElement;
+
+				if(target.classList.contains('active')){
+					target.parentNode.remove('card');
+					numberCard = numberCard.slice(0, count);
+					count = count - 1
+					document.querySelectorAll('.block_card_front').forEach((n, i) => n.textContent = numberCard[i]);
+				}
+
+				target.classList.add('active')
+			};
+		
+
+			cards.forEach(card => {
+				card.addEventListener('click', flipCard)
+			})
+		</script>
+    </body>
+</html>
