@@ -16,6 +16,9 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 /*--------------------*/
 
+
+
+
 .wrapper{
     width: 100vw;
     height: 100vh;
@@ -146,4 +149,159 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 }
 .block_card{
     perspective: 1000px;
+}
+
+
+@media (max-width: 1800px){
+    .wrapper{
+        width: 100vw;
+        height: auto;
+        min-height: 100%;
+        padding: 0 40px 40px;
+    }
+    .card{
+        flex: 0 1 25%;
+        margin-top: 60px;
+        height: 35vh;
+    }
+    .block_card_front{
+        line-height: 35vh;
+    }
+    .block_btn-text.active{
+        width: 15vw;
+        height: 6vh;
+        margin-top: 60px;
+        font-size: 20px;
+    }
+    .block_card_back{
+        font-size: 60px;
+        line-height: 35vh;
+    }
+}
+@media (max-width: 1600px){
+    .card{
+        flex: 0 1 33.333%;
+        margin-top: 50px;
+        height: 35vh;
+        background-color: grey;
+    }
+    .block_card{
+        margin: 0 25px;
+    }
+    .block_card_front{
+        line-height: 35vh;
+    }
+    .block_btn-text.active{
+        width: 25vw;
+        height: 6vh;
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    .block_card_back{
+        font-size: 40px;
+        line-height: 35vh;
+    }
+}
+@media (max-width: 700px){
+    .card{
+        flex: 0 1 50%;
+        margin-top: 30px;
+        height: 40vh;
+        background-color: grey;
+    }
+    .block_card{
+        margin: 0 30px;
+    }
+    .block_card_front{
+        font-size: 70px;
+        line-height: 40vh;
+    }
+    .block_btn-text.active{
+        width: 35vw;
+        height: 5vh;
+        margin-top: 30px;
+        font-size: 25px;
+    }
+    .block_card_back{
+        font-size: 35px;
+        line-height: 40vh;
+    }
+}
+@media (max-width: 580px){
+    .card{
+        flex: 0 1 50%;
+        margin-top: 30px;
+        height: 40vh;
+        background-color: grey;
+    }
+    .block_card{
+        margin: 0 30px;
+    }
+    .block_card_front{
+        font-size: 70px;
+        line-height: 40vh;
+    }
+    .block_btn-text.active{
+        width: 35vw;
+        height: 6vh;
+        margin-top: 30px;
+        font-size: 25px;
+    }
+    .block_card_back{
+        font-size: 25px;
+        line-height: 40vh;
+    }
+}
+@media (max-width: 440px){
+    .wrapper{
+        padding: 0 15px;
+    }
+    .card{
+        flex: 0 1 50%;
+        margin-top: 30px;
+        height: 33vh;
+        background-color: grey;
+    }
+    .block_card{
+        margin: 0 15px;
+    }
+    .block_card_front{
+        font-size: 60px;
+        line-height: 33vh;
+    }
+    .block_btn-text.active{
+        width: 25vw;
+        height: 5vh;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    .block_card_back{
+        font-size: 25px;
+        line-height: 33vh;
+    }
+}
+@media (max-width: 370px){
+    .card{
+        flex: 0 1 50%;
+        margin-top: 20px;
+        height: 33vh;
+        background-color: grey;
+    }
+    .block_card{
+        margin: 0 8px;
+    }
+    .block_card_front{
+        font-size: 50px;
+        line-height: 33vh;
+    }
+    .block_btn-text.active{
+        width: 40vw;
+        height: 5vh;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    .block_card_back{
+        font-size: 21px;
+        line-height: 33vh;
+    }
 }
