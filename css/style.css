@@ -90,6 +90,9 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     height: 40vh;
     background-color: grey;
 }
+.hidden{
+    display: none;
+}
 .block_card{
     height: 100%;
     margin: 0 40px;
