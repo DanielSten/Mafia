@@ -93,6 +93,12 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 .hidden{
     display: none;
 }
+
+.hidden_nine_players{
+    display: none;
+}
+
+
 .block_card{
     height: 100%;
     margin: 0 40px;

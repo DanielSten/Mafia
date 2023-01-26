@@ -16,9 +16,15 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<div class="block_btn">
-				<button id="btnOne" class="block_btn-text btn_number active"><span>Номера</span></button>
-				<button id="btnTwo" class="block_btn-text btn_role"><span>Роли</span></button>
+			<div class="flex">
+				<div class="block_btn">
+					<button class="block_btn-text btn_nine"><span>9 игроков</span></button>
+					<button class="block_btn-text btn_ten active"><span>10 игроков</span></button>
+				</div>
+				<div class="block_btn">
+					<button class="block_btn-text btn_number active"><span>Номера</span></button>
+					<button class="block_btn-text btn_role"><span>Роли</span></button>
+				</div>
 			</div>
 			<div class="flex">
 				<div class="card">
@@ -82,11 +88,10 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
 			
 		<script>
-			let role = ['мирный', 'мирный', 'мирный', 'мирный', 'мирный', 'мирный', 'мафия', 'мафия', 'босс', 'шериф'];
+			let role = ['мирный', 'мирный', 'мирный', 'мирный', 'мирный', 'мафия', 'мафия', 'босс', 'шериф', 'мирный'];
 			let numberPlayers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 			let numberCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 			const cards = document.querySelectorAll('.block_card');
@@ -96,9 +101,58 @@
 			let count = 9;
 
 
+			function changeBtnAmoutPlayers() {
+				let btnPlayersNine = document.querySelector('.btn_nine');
+				let btnPlayersTen = document.querySelector('.btn_ten');
+
+				btnPlayersNine.addEventListener('click', () => {
+					role = ['мирный', 'мирный', 'мирный', 'мирный', 'мирный', 'мафия', 'мафия', 'босс', 'шериф', 'мирный']
+					numberPlayers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+					numberCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+					if (btnPlayersNine.classList.contains("active")) {
+					    btnPlayersNine.classList.remove("active");
+					    btnPlayersTen.classList.add("active");
+					    document.querySelectorAll('.block_card_front')
+					    	.forEach(el => {
+					    		if (el.innerHTML == 10){
+					    			el.parentNode.parentNode.classList.remove('hidden_nine_players')
+					    		}
+							});
+					}
+					useRole()
+					useNumPlayers()
+					btnOne.classList.add("active");
+					btnTwo.classList.remove("active");
+				})
+				btnPlayersTen.addEventListener('click', () => {
+					role = ['мирный', 'мирный', 'мирный', 'мирный', 'мирный', 'мафия', 'мафия', 'босс', 'шериф', 'мирный']
+					numberPlayers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+					numberCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+					role.pop()
+					numberPlayers.pop()
+					numberCard.pop()
+					if (btnPlayersTen.classList.contains("active")) {
+					    btnPlayersTen.classList.remove("active");
+					    btnPlayersNine.classList.add("active");
+					    document.querySelectorAll('.block_card_front')
+							.forEach(el => {
+					    		if (el.innerHTML == 10){
+					    			el.parentNode.parentNode.classList.add('hidden_nine_players')
+					    		}
+							})
+					}
+					useRole()
+					useNumPlayers()
+				})
+			}
+			changeBtnAmoutPlayers()
+			
+
+
 
 			function reCount() {
 				const nums = document.querySelectorAll('.block_card_front');
+				
 				nums.forEach((n, i) => n.textContent = i + 1);
 			}
 			nums.forEach((n, i) => n.textContent = i + 1);
@@ -107,14 +161,14 @@
 			function useRole() {
 				role.sort(()=>Math.random()-0.5);
 				console.log(role);
-				document.querySelectorAll('.block_card_back')	
+				document.querySelectorAll('.card:not(.hidden) .block_card_back')	
 						.forEach((n, i) => n.textContent = role[i]);
 				reCount()
 			}
 			function useNumPlayers() {
 				numberPlayers.sort(()=>Math.random()-0.5);
 				console.log(numberPlayers);
-				document.querySelectorAll('.block_card_back')
+				document.querySelectorAll('.card:not(.hidden) .block_card_back')
 						.forEach((n, i) => n.textContent = numberPlayers[i]);
 				reCount()
 			}
