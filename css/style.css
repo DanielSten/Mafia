@@ -24,6 +24,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     height: 100vh;
     background-color: grey;
     padding: 0 40px;
+    user-select: none;
 }
 .block_btn{
     text-align: center;
