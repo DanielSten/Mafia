@@ -119,10 +119,10 @@
 					    		}
 							});
 					}
-					useRole()
 					useNumPlayers()
 					btnOne.classList.add("active");
 					btnTwo.classList.remove("active");
+					
 				})
 				btnPlayersTen.addEventListener('click', () => {
 					role = ['мирный', 'мирный', 'мирный', 'мирный', 'мирный', 'мафия', 'мафия', 'босс', 'шериф', 'мирный']
@@ -141,8 +141,10 @@
 					    		}
 							})
 					}
-					useRole()
+					btnOne.classList.add("active");
+					btnTwo.classList.remove("active");
 					useNumPlayers()
+					
 				})
 			}
 			changeBtnAmoutPlayers()
